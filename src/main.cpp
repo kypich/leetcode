@@ -3,35 +3,45 @@
 
 // Web-site with all the cpp info: cppreference.com
 
+// Your leetcode worksheet
+void lcw_leetcode(const int option) {
+    switch (option) {
+    case 1: {
+        std::cout << "1. Two Sum (Easy)" << std::endl;
+        std::vector nums = { 3, 2, 4 };
+        std::vector vec = lc_tasks::twoSum(nums, 6);
+        for (int el : vec) {
+            std::cout << el << " ";
+        }
+        break;
+    }
+
+    case 9: {
+        std::cout << "9. Is Palindrome (Easy)" << std::endl;
+        std::cout << std::boolalpha << lc_tasks::isPalindrome(11211) << std::endl;
+        std::cout << std::boolalpha << lc_tasks::is_pal2(11211) << std::endl;
+        break;
+    }
+
+    default: {
+        std::cout << "Invalid LC task number" << std::endl;
+        break;
+
+    }
+    }
+}
+
 int main() {
-    // std::cout << "Hello world!" << std::endl;
-
-    // ----------------------------------------------------
-    // 1. Two Sum
-
-    // std::vector nums = { 3, 2, 4 };
-
-    // std::vector vec = twoSum(nums, 6);
-
-    // for (int el : vec) {
-    //     std::cout << el << " ";
-    // }
 
     /*
         - C-style cast
         std::cout << (int)56.99;
 
-        - Cpp-style:
+        - Cpp-style (static):
         std::cout << static_cast<int>(56.99);
     */
 
-    //------------------------------------------------------
-    // 9. Palindrome Number
-
-    // isPalindrome();
-
-    std::cout << std::boolalpha << isPalindrome(11211) << std::endl;
-    std::cout << std::boolalpha << is_pal2(11211) << std::endl;
+    lcw_leetcode(9);
 
     return 0;
 }
