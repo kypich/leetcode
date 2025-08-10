@@ -6,7 +6,8 @@
 #include <stack>
 #include <string>
 
-std::vector<int> twoSum(std::vector<int>& nums, int target) {
+// 1. Two Sum (Easy)
+std::vector<int> lc_tasks::twoSum(std::vector<int>& nums, int target) {
     // std::vector<int> result;
     // for (size_t i = 0; i < nums.size(); ++i) {
     //     for (size_t j = i + 1; j < nums.size(); ++j) {
@@ -45,7 +46,8 @@ std::vector<int> twoSum(std::vector<int>& nums, int target) {
     return {};
 }
 
-bool isPalindrome(int x) {
+// 9. Is Pal (Easy)
+bool lc_tasks::isPalindrome(int x) {
     if (x < 0) {
         return false;
     }
@@ -60,7 +62,8 @@ bool isPalindrome(int x) {
     return true;
 }
 
-bool is_pal2(int x) {
+// 9. Is Pal Stack Solution (Easy)
+bool lc_tasks::is_pal2(int x) {
     std::stack<char> st;
     std::string s = std::to_string(x);
 
@@ -75,5 +78,3 @@ bool is_pal2(int x) {
 
     return true;
 }
-
-
