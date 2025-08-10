@@ -1,6 +1,12 @@
-#pragma once
+#ifndef TASKS_HPP_
+#define TASKS_HPP_ 1
 #include <vector>
 
-std::vector<int> twoSum(std::vector<int>& nums, int target);
-bool isPalindrome(int x);
-bool is_pal2(int x);
+class lc_tasks {
+public:
+    static std::vector<int> twoSum(std::vector<int>& nums, int target);
+    static bool isPalindrome(int x);
+    static bool is_pal2(int x);
+};
+
+#endif
