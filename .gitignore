@@ -42,3 +42,6 @@
 
 # vscode cache
 .vscode/
+
+# other
+build/
