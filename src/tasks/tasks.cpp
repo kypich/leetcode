@@ -42,7 +42,6 @@ std::vector<int> lc_tasks::twoSum(std::vector<int>& nums, int target) {
 
         num_c[nums[i]] = i;
     }
-
     return {};
 }
 
@@ -75,6 +74,35 @@ bool lc_tasks::is_pal2(int x) {
         if ((int)st.top() != s[(int)i]) return false;
         st.pop();
     }
-
     return true;
+}
+
+
+// 13. Roman to Integer
+int lc_tasks::romanToInt(std::string s) {
+        //1994
+        //(5-1)+(100-10)+(1000-100)+(1000)
+        // 1000 - 100 + 1000 - 10 + 100 - 1 + 5
+
+        //LVIII
+        //58
+        //50+5+1+1+1
+
+
+
+        std::unordered_map<char, int> symbols{{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}};
+        int previous_number = 0;
+        int counter = 0;
+        //MCMXCIV
+        for (char i : s) {
+            if (symbols[i] >= previous_number){
+                counter += symbols[i];
+                previous_number = symbols[i];
+            }
+            else {
+                counter -= symbols[i];
+                previous_number = symbols[i];
+            }
+        }
+    return counter;
 }
