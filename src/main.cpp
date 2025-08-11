@@ -25,7 +25,7 @@ void lcw_leetcode(const int option) {
 
     case 13: {
         std::cout << "13. Roman to Integer (Easy)" << std::endl;
-        std::cout << lc_tasks::romanToInt("VI") << std::endl;
+        std::cout << lc_tasks::romanToInt("III") << std::endl;
         break;
     }
 

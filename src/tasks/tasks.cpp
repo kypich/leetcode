@@ -83,25 +83,28 @@ int lc_tasks::romanToInt(std::string s) {
         //1994
         //(5-1)+(100-10)+(1000-100)+(1000)
         // 1000 - 100 + 1000 - 10 + 100 - 1 + 5
-
         //LVIII
         //58
         //50+5+1+1+1
-
-
-
+        std::stack<char> st;
         std::unordered_map<char, int> symbols{{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}};
         int previous_number = 0;
         int counter = 0;
-        //MCMXCIV
-        for (char i : s) {
-            if (symbols[i] >= previous_number){
-                counter += symbols[i];
-                previous_number = symbols[i];
+
+        for (char c : s) {
+            st.push(c);
+        }
+
+        while (!st.empty()){
+            char el = st.top();
+            st.pop();
+            if (symbols[el] >= previous_number){
+                counter += symbols[el];
+                previous_number = symbols[el];
             }
             else {
-                counter -= symbols[i];
-                previous_number = symbols[i];
+                counter -= symbols[el];
+                previous_number = symbols[el];
             }
         }
     return counter;
