@@ -29,6 +29,13 @@ void lcw_leetcode(const int option) {
         break;
     }
 
+    case 14: {
+        std::cout << "13. Roman to Integer (Easy)" << std::endl;
+        std::vector<std::string> vec = {"flower","flow","flight"};
+        std::cout << lc_tasks::longestCommonPrefix(vec) << std::endl;
+        break;
+    }
+
     default: {
         std::cout << "Invalid LC task number" << std::endl;
         break;
@@ -47,7 +54,7 @@ int main() {
         std::cout << static_cast<int>(56.99);
     */
 
-    lcw_leetcode(13);
+    lcw_leetcode(14);
 
     return 0;
 }

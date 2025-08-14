@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <unordered_map>
 #include <stack>
+#include <queue>
 #include <string>
+#include <algorithm>
 
 // 1. Two Sum (Easy)
 std::vector<int> lc_tasks::twoSum(std::vector<int>& nums, int target) {
@@ -80,32 +82,69 @@ bool lc_tasks::is_pal2(int x) {
 
 // 13. Roman to Integer
 int lc_tasks::romanToInt(std::string s) {
-        //1994
-        //(5-1)+(100-10)+(1000-100)+(1000)
-        // 1000 - 100 + 1000 - 10 + 100 - 1 + 5
-        //LVIII
-        //58
-        //50+5+1+1+1
-        std::stack<char> st;
-        std::unordered_map<char, int> symbols{{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}};
-        int previous_number = 0;
-        int counter = 0;
+    //1994
+    //(5-1)+(100-10)+(1000-100)+(1000)
+    // 1000 - 100 + 1000 - 10 + 100 - 1 + 5
+    //LVIII
+    //58
+    //50+5+1+1+1
+    std::stack<char> st;
+    std::unordered_map<char, int> symbols{ {'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000} };
+    int previous_number = 0;
+    int counter = 0;
 
-        for (char c : s) {
-            st.push(c);
+    for (char c : s) {
+        st.push(c);
+    }
+
+    while (!st.empty()) {
+        char el = st.top();
+        st.pop();
+        if (symbols[el] >= previous_number) {
+            counter += symbols[el];
+            previous_number = symbols[el];
         }
+        else {
+            counter -= symbols[el];
+            previous_number = symbols[el];
+        }
+    }
+    return counter;
+}
 
-        while (!st.empty()){
-            char el = st.top();
-            st.pop();
-            if (symbols[el] >= previous_number){
-                counter += symbols[el];
-                previous_number = symbols[el];
+//14. Longest Common Prefix (Easy)
+std::string lc_tasks::longestCommonPrefix(std::vector<std::string>& strs) {
+    // substr(pos, len)
+    if (strs.size() == 1) return strs[0];
+
+    for (const auto& s : strs) {
+        if (s.empty()) return "";
+    }
+
+    std::sort(strs.begin(), strs.end(), [](const std::string& a, const std::string& b) {
+        return a.length() < b.length();
+        });
+
+    std::queue<char> q;
+    std::string res = ""; // вот тут шок информация
+    int gc = 0;
+
+    for (char c : strs[0]) q.push(c);
+
+    while (!q.empty()) {
+        char c = q.front(); q.pop();
+        for (int i = 1; i < strs.size(); ++i) {
+            if (strs[i][gc] == c) {
+                if (i == strs.size() - 1) {
+                    res.push_back(c);
+                }
             }
             else {
-                counter -= symbols[el];
-                previous_number = symbols[el];
+                return res;
             }
         }
-    return counter;
+        gc++;
+    }
+
+    return res;
 }

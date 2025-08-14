@@ -10,6 +10,7 @@ public:
     static bool isPalindrome(int x);
     static bool is_pal2(int x);
     static int romanToInt(std::string s);
+    static std::string longestCommonPrefix(std::vector<std::string>& strs);
 };
 
 #endif
