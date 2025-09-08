@@ -31,8 +31,14 @@ void lcw_leetcode(const int option) {
 
     case 14: {
         std::cout << "13. Roman to Integer (Easy)" << std::endl;
-        std::vector<std::string> vec = {"flower","flow","flight"};
+        std::vector<std::string> vec = { "flower","flow","flight" };
         std::cout << lc_tasks::longestCommonPrefix(vec) << std::endl;
+        break;
+    }
+
+    case 20: {
+        std::cout << "20. Valid Parentheses (Easy)" << std::endl;
+        std::cout << std::boolalpha << lc_tasks::isValid("((") << std::endl;
         break;
     }
 
@@ -54,7 +60,7 @@ int main() {
         std::cout << static_cast<int>(56.99);
     */
 
-    lcw_leetcode(14);
+    lcw_leetcode(20);
 
     return 0;
 }

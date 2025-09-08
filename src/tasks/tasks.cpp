@@ -148,3 +148,35 @@ std::string lc_tasks::longestCommonPrefix(std::vector<std::string>& strs) {
 
     return res;
 }
+
+// 20. Valid Parentheses
+bool lc_tasks::isValid(std::string s) {
+        std::stack<char> st;
+        std::string reference = "()[]{}"; // reference value
+
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '(' || s[i] == '{' ||s[i] == '[') {
+                st.push(s[i]);
+                continue;
+            }
+            if (s[i] == ')' || s[i] == '}' ||s[i] == ']') {
+                if (st.empty()) {
+                    return false;
+                }
+                
+                // Саб нужно сделать из вернего элемента стака(открытая скобка) и s[i] сейчас которое (закрытая скобка) 
+                std::string sub; // sub = "[]"
+                sub += st.top();
+                sub += s[i];
+
+                // поиск под-строки в строке
+                if (reference.find(sub) != std::string::npos) {
+                    //если найденно
+                    st.pop();
+                }else {
+                    return false;
+                }
+            }
+        }
+        return st.empty();
+    }

@@ -11,6 +11,7 @@ public:
     static bool is_pal2(int x);
     static int romanToInt(std::string s);
     static std::string longestCommonPrefix(std::vector<std::string>& strs);
+    static bool isValid(std::string s);
 };
 
 #endif
