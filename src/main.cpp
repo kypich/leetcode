@@ -42,6 +42,23 @@ void lcw_leetcode(const int option) {
         break;
     }
 
+    case 21: {
+        std::cout << "21. Merge Two Sorted Lists (Easy)" << std::endl;
+
+        int nums1[3] = {1, 2, 4};
+        int nums2[3] = {1, 3, 4};
+
+
+        lc_tasks::mergeTwoLists(nums1, nums2);
+        break;
+    }
+
+    case 3: {
+        std::cout << "3. Longest Substring Without Repeating Characters (Medium)" << std::endl;
+        std::cout << lc_tasks::lengthOfLongestSubstring("abcabcbb") << std::endl;
+        break;
+    }
+
     default: {
         std::cout << "Invalid LC task number" << std::endl;
         break;
@@ -60,7 +77,7 @@ int main() {
         std::cout << static_cast<int>(56.99);
     */
 
-    lcw_leetcode(20);
+    lcw_leetcode(3);
 
     return 0;
 }

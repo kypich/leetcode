@@ -12,6 +12,8 @@ public:
     static int romanToInt(std::string s);
     static std::string longestCommonPrefix(std::vector<std::string>& strs);
     static bool isValid(std::string s);
+    static int mergeTwoLists(int *list1, int *list2);
+    static int lengthOfLongestSubstring(std::string s);
 };
 
 #endif

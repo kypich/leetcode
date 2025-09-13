@@ -151,32 +151,74 @@ std::string lc_tasks::longestCommonPrefix(std::vector<std::string>& strs) {
 
 // 20. Valid Parentheses
 bool lc_tasks::isValid(std::string s) {
-        std::stack<char> st;
-        std::string reference = "()[]{}"; // reference value
+    std::stack<char> st;
+    std::string reference = "()[]{}"; // reference value
 
-        for (int i = 0; i < s.size(); i++) {
-            if (s[i] == '(' || s[i] == '{' ||s[i] == '[') {
-                st.push(s[i]);
-                continue;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
+            st.push(s[i]);
+            continue;
+        }
+        if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
+            if (st.empty()) {
+                return false;
             }
-            if (s[i] == ')' || s[i] == '}' ||s[i] == ']') {
-                if (st.empty()) {
-                    return false;
-                }
-                
-                // Саб нужно сделать из вернего элемента стака(открытая скобка) и s[i] сейчас которое (закрытая скобка) 
-                std::string sub; // sub = "[]"
-                sub += st.top();
-                sub += s[i];
 
-                // поиск под-строки в строке
-                if (reference.find(sub) != std::string::npos) {
-                    //если найденно
-                    st.pop();
-                }else {
-                    return false;
-                }
+            // Саб нужно сделать из вернего элемента стака(открытая скобка) и s[i] сейчас которое (закрытая скобка) 
+            std::string sub; // sub = "[]"
+            sub += st.top();
+            sub += s[i];
+
+            // поиск под-строки в строке
+            if (reference.find(sub) != std::string::npos) {
+                //если найденно
+                st.pop();
+            }
+            else {
+                return false;
             }
         }
-        return st.empty();
     }
+    return st.empty();
+}
+
+
+// 21. Merge Two Sorted Lists
+int lc_tasks::mergeTwoLists(int *list1, int *list2) {
+    int x = 5;
+    int y[500] = { 1,2,3,4,5,6,7 };
+
+    int *px = &x;
+    int *py = y;    
+
+    std::cout << x << " - " << y << "\n";
+
+    return 0;
+}
+
+
+// 3. Longest Substring Without Repeating Characters
+int lc_tasks::lengthOfLongestSubstring(std::string s) {
+    //"abcabcbb"
+    int longest = 0;
+    int left = 0;
+    std::unordered_map<char, int> list;
+    // list[s[left]] = left;
+    
+    for (int right = 0; right < s.size(); right++) {
+        list.insert({s[right], right});
+        if (list.size() == right - left + 1) {
+            if (list.size() > longest) {
+                longest = list.size(); 
+            }
+        }
+        else {
+            while (list.size() != right - left + 1) {
+                list.erase(s[left]);
+                left++;
+                list.insert({s[right], right});
+            }
+        }
+    }
+    return longest;
+}
