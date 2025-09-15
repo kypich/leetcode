@@ -14,6 +14,7 @@ public:
     static bool isValid(std::string s);
     static int mergeTwoLists(int *list1, int *list2);
     static int lengthOfLongestSubstring(std::string s);
+    static int removeDuplicates(std::vector<int>& nums);
 };
 
 #endif

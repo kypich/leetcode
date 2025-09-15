@@ -59,6 +59,13 @@ void lcw_leetcode(const int option) {
         break;
     }
 
+    case 26: {
+        std::cout << "26. Remove Duplicates from Sorted Array (Easy)" << std::endl;
+        std::vector<int> nums = {0,0,1,1,1,2,2,3,3,4};
+        std::cout << lc_tasks::removeDuplicates(nums) << std::endl;
+        break;
+    }
+
     default: {
         std::cout << "Invalid LC task number" << std::endl;
         break;
@@ -77,7 +84,7 @@ int main() {
         std::cout << static_cast<int>(56.99);
     */
 
-    lcw_leetcode(3);
+    lcw_leetcode(26);
 
     return 0;
 }

@@ -222,3 +222,18 @@ int lc_tasks::lengthOfLongestSubstring(std::string s) {
     }
     return longest;
 }
+
+
+// 26. Remove Duplicates from Sorted Array
+int lc_tasks::removeDuplicates(std::vector<int>& nums){
+    int k = 1;
+    int left = 0;
+    for (int right = 0; right < nums.size(); right++) {
+        if (nums[right] != nums[left]) {
+            k++;
+            left++;
+            nums[left] = nums[right];
+        }
+    }
+    return k;
+}
